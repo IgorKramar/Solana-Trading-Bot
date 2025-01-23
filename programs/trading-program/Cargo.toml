@@ -1,0 +1,28 @@
+[package]
+name = "trading-program"
+version = "0.1.0"
+description = "Solana trading program for automated trading with Serum DEX"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "trading_program"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.27.0"
+anchor-spl = "0.27.0"
+solana-program = "1.14"
+serum_dex = { git = "https://github.com/project-serum/serum-dex", rev = "master", features = ["no-entrypoint"] }
+pyth-sdk-solana = "0.7.0"
+bytemuck = { version = "1.13", features = ["derive"] }
+
+[dev-dependencies]
+solana-program-test = "1.14"
+solana-sdk = "1.14" 
